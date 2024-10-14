@@ -53,14 +53,14 @@ Esta é uma aplicação de agenda telefônica desenvolvida com **NestJS**, **Mon
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/agenda-telefonica-nestjs.git
-cd agenda-telefonica-nestjs
+git clone https://github.com/bodescorp/API_agenda
+cd API_agenda
 ```
 
 2. Instale as dependências:
 
 ```bash
-npm install
+yarn install
 ```
 
 3. Configure as variáveis de ambiente criando um arquivo `.env`:
@@ -73,7 +73,7 @@ MONGODB_URI=your_mongodb_atlas_connection_string
 4. Execute o projeto:
 
 ```bash
-npm run start
+yarn start
 ```
 
 O projeto estará disponível em `http://localhost:3000`.
@@ -82,11 +82,11 @@ O projeto estará disponível em `http://localhost:3000`.
 
 ### Listar Contatos
 
-- Acesse `http://localhost:3000/contacts` para visualizar a lista de contatos.
+- Acesse `http://localhost:3000/contatos` para visualizar a lista de contatos.
 
 ### Criar um Novo Contato
 
-- Clique no botão **Create New Contact** na página de listagem ou acesse diretamente `http://localhost:3000/contacts/create` para preencher o formulário de novo contato.
+- Clique no botão **Create New Contact** na página de listagem ou acesse diretamente `http://localhost:3000/contatos/create` para preencher o formulário de novo contato.
 
 ### Atualizar ou Excluir Contatos
 
