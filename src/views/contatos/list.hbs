@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Contacts List</h1>
+    <a href="/views/contatos/create">
+        <button type="button">Create New Contact</button>
+    </a>
+    <ul>
+        {{#each contatos}}
+        <li>
+            {{this.name}} - {{this.phone}} - {{this.email}}
+            <!-- Botão de exclusão -->
+            <form action="/views/contatos/{{this._id}}/delete" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+            <!-- Botão de atualização -->
+            <a href="/views/contatos/{{this._id}}/edit">
+                <button type="button">Update</button>
+            </a>
+        </li>
+        {{else}}
+        <li>No contacts available.</li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>
