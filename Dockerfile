@@ -10,11 +10,17 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
-# Aqui ainda estamos como root para garantir permissões
+
+# Criar o diretório dist e garantir permissões
+RUN mkdir -p /home/node/app/dist && chown -R node:node /home/node/app
+
+# Construir o projeto como root
 RUN yarn build
 
-WORKDIR /home/node/app
+# Mudar o proprietário do dist novamente, se necessário
+RUN chown -R node:node /home/node/app/dist
 
+# Trocar para o usuário node após o build
 USER node
 
 CMD ["sh", "-c", "yarn start:dev"]
