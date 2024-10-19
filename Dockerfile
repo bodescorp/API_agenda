@@ -10,9 +10,11 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
+# Aqui ainda estamos como root para garantir permissões
+RUN yarn build
 
 WORKDIR /home/node/app
 
 USER node
 
-CMD ["sh", "-c", "yarn migration:run && yarn start:dev"]
+CMD ["sh", "-c", "yarn start:dev"]
