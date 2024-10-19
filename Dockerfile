@@ -15,4 +15,4 @@ WORKDIR /home/node/app
 
 USER node
 
-CMD ["sh", "-c", "yarn migration:run && yarn start:dev"]
+CMD ["sh", "-c", "yarn start:dev"]
