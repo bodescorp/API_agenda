@@ -11,7 +11,6 @@
   <h1>Create New Contact</h1>
 
   <form action="/views/contatos/create" method="POST">
-    <!-- Basic Info Section -->
     <fieldset>
       <legend>Basic Information</legend>
       
@@ -25,7 +24,6 @@
       <input type="email" id="email" name="email" placeholder="Enter email" required>
     </fieldset>
 
-    <!-- Location Section -->
     <fieldset>
       <legend>Location Information</legend>
       
@@ -45,7 +43,6 @@
       <input type="number" step="any" id="longitude" name="point[coordinates][0]" placeholder="Enter longitude" required>
     </fieldset>
 
-    <!-- Additional Info Section -->
     <fieldset>
       <legend>Additional Information</legend>
 
@@ -67,7 +64,6 @@
       <input type="number" id="usageFrequency" name="usageFrequency" min="0" placeholder="Frequency of use">
     </fieldset>
 
-    <!-- Form Actions -->
     <div class="form-actions">
       <button type="submit">Create Contact</button>
       <button type="reset" style="background-color: #dc3545;">Reset</button>

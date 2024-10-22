@@ -9,8 +9,7 @@
 <body>
   <h1>Edit Contact</h1>
   
-  <form action="/views/contacts/{{contact._id}}/edit" method="POST">
-    <!-- Basic Info Section -->
+  <form action="/views/contatos/{{contact._id}}/edit" method="POST">
     <fieldset>
       <legend>Basic Information</legend>
       
@@ -24,7 +23,6 @@
       <input type="email" id="email" name="email" value="{{contact.email}}" required>
     </fieldset>
 
-    <!-- Location Section -->
     <fieldset>
       <legend>Location Information</legend>
       
@@ -44,7 +42,6 @@
       <input type="number" step="any" id="longitude" name="longitude" value="{{contact.point.coordinates.[0]}}" required>
     </fieldset>
 
-    <!-- Additional Info Section -->
     <fieldset>
       <legend>Additional Information</legend>
 
