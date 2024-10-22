@@ -4,19 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Contact</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/contatos/create.css">
 </head>
 <body>
   <h1>Edit Contact</h1>
-  <form action="/views/contatos/{{contact._id}}/edit" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="{{contact.name}}" required>
+  
+  <form action="/views/contacts/{{contact._id}}/edit" method="POST">
+    <!-- Basic Info Section -->
+    <fieldset>
+      <legend>Basic Information</legend>
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{contact.name}}" required>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" value="{{contact.phone}}" required>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" value="{{contact.phone}}" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value="{{contact.email}}" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{contact.email}}" required>
+    </fieldset>
+
+    <!-- Location Section -->
+    <fieldset>
+      <legend>Location Information</legend>
+      
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" value="{{contact.city}}" required>
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" value="{{contact.state}}" required>
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" value="{{contact.country}}" required>
+
+      <label for="latitude">Latitude:</label>
+      <input type="number" step="any" id="latitude" name="latitude" value="{{contact.point.coordinates.[1]}}" required>
+
+      <label for="longitude">Longitude:</label>
+      <input type="number" step="any" id="longitude" name="longitude" value="{{contact.point.coordinates.[0]}}" required>
+    </fieldset>
+
+    <!-- Additional Info Section -->
+    <fieldset>
+      <legend>Additional Information</legend>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" value="{{contact.age}}">
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="">Select...</option>
+        <option value="Masculino" {{#if (eq contact.gender "Masculino")}}selected{{/if}}>Masculino</option>
+        <option value="Feminino" {{#if (eq contact.gender "Feminino")}}selected{{/if}}>Feminino</option>
+        <option value="Outro" {{#if (eq contact.gender "Outro")}}selected{{/if}}>Outro</option>
+      </select>
+
+      <label for="callCount">Call Count:</label>
+      <input type="number" id="callCount" name="callCount" value="{{contact.callCount}}">
+
+      <label for="usageFrequency">Usage Frequency:</label>
+      <input type="number" id="usageFrequency" name="usageFrequency" value="{{contact.usageFrequency}}">
+    </fieldset>
 
     <button type="submit">Update Contact</button>
   </form>

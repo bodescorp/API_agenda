@@ -22,6 +22,13 @@ export class ViewsController {
         @Body() createContatoDto: CreateContatoDto,
         @Res() res: Response,
     ) {
+        createContatoDto.point = {
+            type: 'Point',
+            coordinates: [
+                createContatoDto.point.coordinates[0], // Longitude
+                createContatoDto.point.coordinates[1]  // Latitude
+            ]
+        };
         await this.contatosService.create(createContatoDto);
         return res.redirect('/views/contatos');
     }

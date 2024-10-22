@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts List</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
+    <link rel="stylesheet" href="/contatos/list.css">
 
+</head>
 <body>
     <h1>Contacts List</h1>
+
     <a href="/views/contatos/create">
-        <button type="button">Create New Contact</button>
+        <button type="button" class="btn-create">Create New Contact</button>
     </a>
-    <ul>
+
+    <ul class="contact-list">
         {{#each contatos}}
         <li>
-            {{this.name}} - {{this.phone}} - {{this.email}}
-            <!-- Botão de exclusão -->
-            <form action="/views/contatos/{{this._id}}/delete" method="POST" style="display:inline;">
-                <button type="submit">Delete</button>
-            </form>
-            <!-- Botão de atualização -->
-            <a href="/views/contatos/{{this._id}}/edit">
-                <button type="button">Update</button>
-            </a>
+            <div class="contact-info">
+                <strong>{{this.name}}</strong><br>
+                Phone: {{this.phone}}<br>
+                Email: {{this.email}}
+            </div>
+            <div class="contact-actions">
+                <form action="/views/contatos/{{this._id}}/delete" method="POST" style="display:inline;">
+                    <button type="submit" class="btn-delete">Delete</button>
+                </form>
+                <a href="/views/contatos/{{this._id}}/edit">
+                    <button type="button" class="btn-update">Update</button>
+                </a>
+            </div>
         </li>
         {{else}}
         <li>No contacts available.</li>
         {{/each}}
     </ul>
-</body>
 
+    <h2>Charts Overview</h2>
+    <div class="charts-container">
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=f820eac7-dce6-4fc2-a35e-f04e8eb80d37&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=43eea31a-417d-460d-a05b-6d30bd64a585&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=209433c3-e81f-4c45-87da-eb34a81a91c0&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=5ca2da87-3308-43bd-a0fc-54840bf64ef5&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=54b8a238-1296-48a0-96f8-63515c9e5b0c&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=306e0740-0994-42a6-a873-834627c82601&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=a440afc1-9256-4bef-a95c-3b86c7fd4626&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe src="https://charts.mongodb.com/charts-project-0-bqmncqz/embed/charts?id=51e1d40f-2f84-4634-aa8c-9c44fd61d28c&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+    </div>
+</body>
 </html>

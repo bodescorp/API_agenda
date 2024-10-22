@@ -4,21 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Contact</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/contatos/create.css">
+ 
 </head>
 <body>
   <h1>Create New Contact</h1>
+
   <form action="/views/contatos/create" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <!-- Basic Info Section -->
+    <fieldset>
+      <legend>Basic Information</legend>
+      
+      <label for="name" class="required">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter full name" required>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" required>
+      <label for="phone" class="required">Phone:</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+      <label for="email" class="required">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required>
+    </fieldset>
 
-    <button type="submit">Create Contact</button>
+    <!-- Location Section -->
+    <fieldset>
+      <legend>Location Information</legend>
+      
+      <label for="city" class="required">City:</label>
+      <input type="text" id="city" name="city" placeholder="Enter city" required>
+
+      <label for="state" class="required">State:</label>
+      <input type="text" id="state" name="state" placeholder="Enter state" required>
+
+      <label for="country" class="required">Country:</label>
+      <input type="text" id="country" name="country" placeholder="Enter country" required>
+
+      <label for="latitude" class="required">Latitude:</label>
+      <input type="number" step="any" id="latitude" name="point[coordinates][1]" placeholder="Enter latitude" required>
+
+      <label for="longitude" class="required">Longitude:</label>
+      <input type="number" step="any" id="longitude" name="point[coordinates][0]" placeholder="Enter longitude" required>
+    </fieldset>
+
+    <!-- Additional Info Section -->
+    <fieldset>
+      <legend>Additional Information</legend>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="0" placeholder="Enter age">
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="">Select...</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
+      </select>
+
+      <label for="callCount">Call Count:</label>
+      <input type="number" id="callCount" name="callCount" min="0" placeholder="Number of calls made">
+
+      <label for="usageFrequency">Usage Frequency:</label>
+      <input type="number" id="usageFrequency" name="usageFrequency" min="0" placeholder="Frequency of use">
+    </fieldset>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="submit">Create Contact</button>
+      <button type="reset" style="background-color: #dc3545;">Reset</button>
+    </div>
   </form>
 </body>
 </html>
